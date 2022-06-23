@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<extension type="plugin" version="3.9" group="system" method="upgrade">
+    <name>PLG_SYSTEM_EASYIMAGERESIZER</name>
+    <version>3.7.0-FREE</version>
+    <creationDate>2020-05-22</creationDate>
+    <license>http://www.gnu.org/licenses/gpl</license>
+    <copyright>Copyright 2020 Viktor Vogel. All rights reserved.</copyright>
+    <author>Viktor Vogel</author>
+    <authoremail>admin@kubik-rubik.de</authoremail>
+    <authorurl>https://kubik-rubik.de/</authorurl>
+    <description>PLG_SYSTEM_EASYIMAGERESIZER_XML_DESCRIPTION</description>
+    <files>
+        <filename plugin="easyimageresizer">easyimageresizer.php</filename>
+        <filename plugin="easyimageresizer">index.html</filename>
+        <folder plugin="easyimageresizer">src</folder>
+    </files>
+    <languages folder="language">
+        <language tag="en-GB">en-GB/en-GB.plg_system_easyimageresizer.ini</language>
+        <language tag="en-GB">en-GB/en-GB.plg_system_easyimageresizer.sys.ini</language>
+        <language tag="de-DE">de-DE/de-DE.plg_system_easyimageresizer.ini</language>
+        <language tag="de-DE">de-DE/de-DE.plg_system_easyimageresizer.sys.ini</language>
+    </languages>
+    <scriptfile>src/Script.php</scriptfile>
+    <updateservers>
+        <server type="extension" priority="1" name="PLG_SYSTEM_EASYIMAGERESIZER">https://check.kubik-rubik.de/updates/easyimageresizer.xml</server>
+    </updateservers>
+    <config>
+        <fields name="params" addfieldpath="/plugins/system/easyimageresizer/src/fields">
+            <fieldset name="settings">
+                <field type="krDonationCodeCheck"/>
+                <field name="krTitleImageInformation" type="krTitle" label="PLG_SYSTEM_EASYIMAGERESIZER_TITLE_IMAGEINFORMATION"/>
+                <field name="scaleMethod" type="list" default="2" label="PLG_SYSTEM_EASYIMAGERESIZER_SCALE_METHOD" description="PLG_SYSTEM_EASYIMAGERESIZER_SCALE_METHOD_DESC">
+                    <option value="2">PLG_SYSTEM_EASYIMAGERESIZER_SCALE_METHOD_SCALE_INSIDE</option>
+                    <option value="3">PLG_SYSTEM_EASYIMAGERESIZER_SCALE_METHOD_SCALE_OUTSIDE</option>
+                    <option value="6">PLG_SYSTEM_EASYIMAGERESIZER_SCALE_METHOD_SCALE_FIT</option>
+                    <option value="1">PLG_SYSTEM_EASYIMAGERESIZER_SCALE_METHOD_SCALE_FILL</option>
+                    <option value="4">PLG_SYSTEM_EASYIMAGERESIZER_SCALE_METHOD_CROP</option>
+                    <option value="5">PLG_SYSTEM_EASYIMAGERESIZER_SCALE_METHOD_CROP_RESIZE</option>
+                </field>
+                <field name="qualityJpg" type="integer" default="80" first="0" last="100" step="5" filter="integer" label="PLG_SYSTEM_EASYIMAGERESIZER_QUALITYJPG" description="PLG_SYSTEM_EASYIMAGERESIZER_QUALITYJPG_DESC"/>
+                <field name="compressionPng" type="integer" default="6" first="0" last="9" step="1" autofocus="true" label="PLG_SYSTEM_EASYIMAGERESIZER_COMPRESSIONPNG" description="PLG_SYSTEM_EASYIMAGERESIZER_COMPRESSIONPNG_DESC"/>
+                <field name="safeNames" type="list" default="1" label="PLG_SYSTEM_EASYIMAGERESIZER_SAFENAMES" description="PLG_SYSTEM_EASYIMAGERESIZER_SAFENAMES_DESC">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+                <field name="enlargeImages" type="list" default="0" label="PLG_SYSTEM_EASYIMAGERESIZER_ENLARGE_IMAGES" description="PLG_SYSTEM_EASYIMAGERESIZER_ENLARGE_IMAGES_DESC">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+                <field name="rotateImages" type="krProInput" default="0" label="PLG_SYSTEM_EASYIMAGERESIZER_ROTATE_IMAGES" description="PLG_SYSTEM_EASYIMAGERESIZER_ROTATE_IMAGES_DESC"/>
+                <field name="processThirdPartyUploads" type="krProInput" default="0" label="PLG_SYSTEM_EASYIMAGERESIZER_PROCESSTHIRDPARTYUPLOADS" description="PLG_SYSTEM_EASYIMAGERESIZER_PROCESSTHIRDPARTYUPLOADS_DESC"/>
+                <field name="excludeComponentsThirdPartyUploads" type="krProInput" default="" label="PLG_SYSTEM_EASYIMAGERESIZER_PROCESSTHIRDPARTYUPLOADS_EXCLUDECOMPONENTS" description="PLG_SYSTEM_EASYIMAGERESIZER_PROCESSTHIRDPARTYUPLOADS_EXCLUDECOMPONENTS_DESC"/>
+                <field name="krTitleSingle" type="krTitle" label="PLG_SYSTEM_EASYIMAGERESIZER_TITLE_MAINRESIZING"/>
+                <field name="width" type="text" default="1000" filter="integer" label="PLG_SYSTEM_EASYIMAGERESIZER_WIDTH" description="PLG_SYSTEM_EASYIMAGERESIZER_WIDTH_DESC"/>
+                <field name="height" type="text" default="1000" filter="integer" label="PLG_SYSTEM_EASYIMAGERESIZER_HEIGHT" description="PLG_SYSTEM_EASYIMAGERESIZER_HEIGHT_DESC"/>
+                <field name="krTitleMulti" type="krTitle" label="PLG_SYSTEM_EASYIMAGERESIZER_TITLE_MULTIRESIZING"/>
+                <field name="multisizes" type="textarea" default="" rows="5" cols="50" filter="raw" label="PLG_SYSTEM_EASYIMAGERESIZER_MULTISIZES" description="PLG_SYSTEM_EASYIMAGERESIZER_MULTISIZES_DESC"/>
+                <field name="multisizePath" type="text" default="" label="PLG_SYSTEM_EASYIMAGERESIZER_MULTISIZE_PATH" description="PLG_SYSTEM_EASYIMAGERESIZER_MULTISIZE_PATH_DESC"/>
+            </fieldset>
+            <fieldset name="optimus">
+                <field type="krDonationCodeCheck"/>
+                <field name="krTitleOptimus" type="krTitle" label="PLG_SYSTEM_EASYIMAGERESIZER_TITLE_OPTIMUS" description="PLG_SYSTEM_EASYIMAGERESIZER_TITLE_OPTIMUS_DESC"/>
+                <field name="optimus" type="list" default="0" label="PLG_SYSTEM_EASYIMAGERESIZER_OPTIMUS" description="PLG_SYSTEM_EASYIMAGERESIZER_OPTIMUS_DESC">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+                <field name="optimusApiKey" type="text" default="" filter="string" label="PLG_SYSTEM_EASYIMAGERESIZER_OPTIMUS_API_KEY" description="PLG_SYSTEM_EASYIMAGERESIZER_OPTIMUS_API_KEY_DESC"/>
+                <field name="optimusUploads" type="list" default="0" label="PLG_SYSTEM_EASYIMAGERESIZER_OPTIMUS_UPLOADS" description="PLG_SYSTEM_EASYIMAGERESIZER_OPTIMUS_UPLOADS_DESC">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+            </fieldset>
+            <fieldset name="optimiseExistingImages">
+                <field type="krDonationCodeCheck"/>
+                <field name="krTitleOptimizeExistingImages" type="krTitle" label="PLG_SYSTEM_EASYIMAGERESIZER_TITLE_OPTIMISEEXISTINGIMAGES" description="PLG_SYSTEM_EASYIMAGERESIZER_TITLE_OPTIMISEEXISTINGIMAGES_DESC"/>
+                <field name="optimiseExistingImagesStartPath" type="krProInput" label="PLG_SYSTEM_EASYIMAGERESIZER_OPTIMISEEXISTINGIMAGES_STARTPATH" description="PLG_SYSTEM_EASYIMAGERESIZER_OPTIMISEEXISTINGIMAGES_STARTPATH_DESC"/>
+                <field name="optimiseExistingImagesCreateBackup" type="krProInput" label="PLG_SYSTEM_EASYIMAGERESIZER_OPTIMISEEXISTINGIMAGES_CREATEBACKUP" description="PLG_SYSTEM_EASYIMAGERESIZER_OPTIMISEEXISTINGIMAGES_CREATEBACKUP_DESC"/>
+            </fieldset>
+            <fieldset name="donation">
+                <field type="krDonationCodeCheck" name="donation"/>
+                <field name="donation_code" type="text" default="" label="KR_DONATION_CODE" description="KR_DONATION_CODE_DESC"/>
+                <field type="krTitle" name="spacerKrtitleGeneral" label=""/>
+                <field type="krProButton" name="easyimageresizer"/>
+            </fieldset>
+        </fields>
+    </config>
+</extension>
