@@ -390,6 +390,8 @@ class PlgSystemEasyImageResizer extends CMSPlugin
      */
     private function getImageInformation(string $mimeType): array
     {
+        $this->qualityJpg;
+        $this->compressionPng;
         $imageInformation = ['type' => IMAGETYPE_JPEG, 'quality' => $this->qualityJpg];
 
         if ($mimeType == 'image/gif') {

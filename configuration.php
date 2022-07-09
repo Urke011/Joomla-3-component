@@ -17,7 +17,7 @@ class JConfig {
 	public $user = 'root';
 	public $password = '';
 	public $db = 'Joomla-3-component';
-	public $dbprefix = 'a1a2b3_';
+	public $dbprefix = 'jos_';
 	public $live_site = '';
 	public $secret = 'e412qHlf5q60ahGB';
 	public $gzip = '0';
